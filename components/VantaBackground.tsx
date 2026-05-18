@@ -13,22 +13,24 @@ export default function VantaBackground() {
 
     if (!vantaEffect.current && vantaRef.current) {
       const loadVanta = async () => {
-        threeScript = document.createElement('script')
-        threeScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js'
-        document.head.appendChild(threeScript)
+        const nextThreeScript = document.createElement('script')
+        nextThreeScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js'
+        document.head.appendChild(nextThreeScript)
+        threeScript = nextThreeScript
 
         await new Promise((resolve) => {
-          threeScript.onload = resolve
+          nextThreeScript.onload = resolve
         })
 
         if (cancelled) return
 
-        vantaScript = document.createElement('script')
-        vantaScript.src = 'https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js'
-        document.head.appendChild(vantaScript)
+        const nextVantaScript = document.createElement('script')
+        nextVantaScript.src = 'https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js'
+        document.head.appendChild(nextVantaScript)
+        vantaScript = nextVantaScript
 
         await new Promise((resolve) => {
-          vantaScript.onload = resolve
+          nextVantaScript.onload = resolve
         })
 
         if (!cancelled && window.VANTA && vantaRef.current) {
