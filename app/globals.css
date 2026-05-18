@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-calcarioCream;
+    color: #4A3F35;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  * {
+    @apply transition-all duration-gentle;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-600 via-accent-600 to-purple-600;
+  }
+  
+  .calm-card {
+    @apply transition-all duration-300 hover:shadow-soft hover:scale-[1.02];
+  }
+  
+  .gentle-button {
+    @apply transition-all duration-300 hover:scale-105 active:scale-95;
+  }
+  
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Reduce motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  
+  /* Custom scrollbar - Mediterranean tones */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #F5F1E8;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #B09A88;
+    border-radius: 5px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #9d8774;
+  }
+}
+
